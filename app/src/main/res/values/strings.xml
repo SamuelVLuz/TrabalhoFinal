@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Presente!</string>
+    <string name="student_name">Integrantes:\nMateus Oliveira\nSamuel Vinícius da Luz</string>
+    <string name="eventos">Eventos</string>
+    <string name="usuarios">Usuários</string>
+    <string name="sobre">Sobre</string>
+    <string name="botao_retornar">Retornar</string>
+    <string name="botao_cadastrar">Cadastrar</string>
+    <string name="botao_novo">Novo</string>
+    <string name="cadastro_eventos">Cadastro de Eventos</string>
+    <string name="cadastro_usuarios">Cadastro de Usuários</string>
+
+    <!-- Hints -->
+    <!-- Eventos -->
+    <string name="hint_data">Data do Evento</string>
+    <string name="hint_inicio">Horário\nInício</string>
+    <string name="hint_final">Horário\nEncerramento</string>
+    <string name="hint_participacao">Participação (% ou hh:mm)</string>
+    <!-- Usuários -->
+    <string name="hint_nome">Nome</string>
+    <string name="hint_descrcao">Descrição</string>
+    <string name="hint_cpf">CPF</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_telefone">Telefone</string>
+    <string name="hint_pesquisar">Pesquisar</string>
+
+
+
+
+
+
+
+
+
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        Lorem
+    </string>
+</resources>
