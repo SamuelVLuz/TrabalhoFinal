@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/textTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Título da tarefa"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textDataInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="Informação da Data" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDetalhes"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalhes"
+        android:onClick="TelaPrincipal"
+        app:cornerRadius="12dp"
+        android:textColor="@color/cortextobotao"
+        app:strokeColor="#B0BEC5"
+        app:strokeWidth="1dp"/>
+
+</LinearLayout>

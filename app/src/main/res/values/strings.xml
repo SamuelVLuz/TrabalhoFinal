@@ -9,6 +9,8 @@
     <string name="botao_novo">Novo</string>
     <string name="cadastro_eventos">Cadastro de Eventos</string>
     <string name="cadastro_usuarios">Cadastro de Usuários</string>
+    <string name="eventos_passados">Eventos Passados</string>
+    <string name="eventos_futuros">Eventos Futuros</string>
 
     <!-- Hints -->
     <!-- Eventos -->
