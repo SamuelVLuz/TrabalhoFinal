@@ -4,4 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background">#FAFAFA</color>
     <color name="cortextobotao">#37474F</color>
+    <color name="botao">#db9a91</color>
+    <color name="fundo">#379ba8</color>
+    <color name="fundotitulo">#E7D140</color>
+    <color name="fundolista">#DFEDEF</color>
 </resources>
