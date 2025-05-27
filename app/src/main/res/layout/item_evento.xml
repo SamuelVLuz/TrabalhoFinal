@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:onClick="TelaPrincipal"
         android:text="Detalhes"
-        android:textColor="@color/cortextobotao"
+        android:textColor="@color/hint"
         app:cornerRadius="12dp"
         app:strokeColor="#B0BEC5"
         app:strokeWidth="1dp" />

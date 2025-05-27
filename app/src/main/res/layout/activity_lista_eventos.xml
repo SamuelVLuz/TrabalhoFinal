@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fundo">
+    android:background="@color/fundo"
+    tools:context=".ListaEventos">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -36,98 +39,103 @@
             android:id="@+id/buttonNewEvent"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
-            android:layout_height="38dp"
+            android:layout_height="50dp"
             android:layout_gravity="top|end"
             android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/mais_icone"
+            android:onClick="cadastrarEventos"
             android:text="@string/botao_novo"
-            android:textColor="@color/cortextobotao"
+            android:textColor="@color/fundolista"
             app:backgroundTint="@color/botao"
             app:cornerRadius="12dp"
             app:strokeColor="#B0BEC5"
             app:strokeWidth="1dp" />
 
+        <TextView
+            android:id="@+id/textViewFuturos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/fundotitulo"
+            android:backgroundTintMode="src_in"
+            android:elevation="2dp"
+            android:padding="16dp"
+            android:text="@string/eventos_futuros"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textViewFuturos"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:background="@color/fundotitulo"
-                        android:backgroundTintMode="src_in"
-                        android:elevation="2dp"
-                        android:padding="16dp"
-                        android:text="@string/eventos_futuros"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerEventosPassados"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="12dp"
-                        android:background="@color/fundolista" />
-
-                    <TextView
-                        android:id="@+id/textViewPassados"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:background="@color/fundotitulo"
-                        android:backgroundTintMode="src_in"
-                        android:elevation="2dp"
-                        android:padding="16dp"
-                        android:text="@string/eventos_passados"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
+                android:orientation="vertical" >
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerEventosFuturos"
+                    android:id="@+id/recyclerViewFuturos"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@color/fundolista" />
+            </LinearLayout>
+        </ScrollView>
 
+        <TextView
+            android:id="@+id/textViewPassados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/fundotitulo"
+            android:backgroundTintMode="src_in"
+            android:elevation="2dp"
+            android:padding="16dp"
+            android:text="@string/eventos_passados"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewPassados"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/fundolista" />
             </LinearLayout>
         </ScrollView>
 
         <EditText
-            android:id="@+id/editTextPesquisar"
+            android:id="@+id/editTextPesquisarUsuarios"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_height="50dp"
             android:background="@color/white"
-            android:drawableLeft="@drawable/lupa"
+            android:drawableStart="@drawable/lupa"
             android:hint="@string/hint_pesquisar"
             android:inputType="text"
             android:padding="12dp"
             android:textAlignment="center" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_retornar"
+            android:id="@+id/button_eventos_retornar"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="retornar"
             android:text="@string/botao_retornar"
-            android:textColor="@color/cortextobotao"
+            android:textColor="@color/fundolista"
             app:backgroundTint="@color/botao"
             app:backgroundTintMode="src_in"
             app:cornerRadius="12dp"
@@ -135,4 +143,5 @@
             app:strokeWidth="1dp" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

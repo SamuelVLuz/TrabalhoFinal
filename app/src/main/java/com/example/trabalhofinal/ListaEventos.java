@@ -10,13 +10,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class ListaEventos extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_lista_eventos);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -24,12 +24,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void listaEventos(View v){
-        Intent i = new Intent(this, ListaEventos.class);
-        startActivity(i);
+    public void retornar(View v){
+        finish();
     }
-    public void listaUsuarios(View v){
-        Intent i = new Intent(this, ListaUsuarios.class);
+
+    public void cadastrarEventos(View v){
+        Intent i = new Intent(this, CadastrarEventos.class);
         startActivity(i);
     }
 }

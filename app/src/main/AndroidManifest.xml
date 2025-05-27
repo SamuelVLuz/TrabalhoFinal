@@ -13,6 +13,18 @@
         android:theme="@style/Theme.TrabalhoFinal"
         tools:targetApi="31">
         <activity
+            android:name=".ListaUsuarios"
+            android:exported="false" />
+        <activity
+            android:name=".CadastrarUsuarios"
+            android:exported="false" />
+        <activity
+            android:name=".CadastrarEventos"
+            android:exported="false" />
+        <activity
+            android:name=".ListaEventos"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

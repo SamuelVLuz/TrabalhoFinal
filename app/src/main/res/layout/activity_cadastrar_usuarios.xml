@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/fundo"
     android:backgroundTintMode="src_over"
-    tools:context=".MainActivity">
+    tools:context=".CadastrarUsuarios">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -46,7 +46,8 @@
             android:hint="@string/hint_nome"
             android:inputType="text"
             android:padding="12dp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColorHint="@color/hint" />
 
         <EditText
             android:id="@+id/editTextCPF"
@@ -58,7 +59,8 @@
             android:inputType="text"
             android:padding="12dp"
             android:textAlignment="center"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/hint" />
 
         <EditText
             android:id="@+id/editTextFinal"
@@ -70,7 +72,9 @@
             android:inputType="text"
             android:padding="12dp"
             android:textAlignment="center"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
+            android:textColorHint="@color/hint" />
 
         <EditText
             android:id="@+id/editTextParticipacao"
@@ -82,7 +86,8 @@
             android:inputType="text"
             android:padding="12dp"
             android:textAlignment="center"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/hint" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_cadastrar"
@@ -91,19 +96,20 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:text="@string/botao_cadastrar"
-            android:textColor="@color/cortextobotao"
+            android:textColor="@color/fundolista"
             app:backgroundTint="@color/botao"
             app:cornerRadius="12dp"
             app:strokeColor="#B0BEC5"
             app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_retornar"
+            android:id="@+id/button_eventos_retornar"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="retornar"
             android:text="@string/botao_retornar"
-            android:textColor="@color/cortextobotao"
+            android:textColor="@color/fundolista"
             app:backgroundTint="@color/botao"
             app:cornerRadius="12dp"
             app:strokeColor="#B0BEC5"
