@@ -9,9 +9,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class ListaEventos extends AppCompatActivity {
 
+    private RecyclerView recyclerEventosFuturos;
+    private RecyclerView recyclerEventosPassados;
+    private EventoDAO eventoDAO;
+    private EventoAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +28,12 @@ public class ListaEventos extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        recyclerEventosPassados = findViewById(R.id.recyclerViewPassados);
+        recyclerEventosFuturos = findViewById(R.id.recyclerViewFuturos);
+        eventoDAO = new EventoDAO(this);
+        recyclerEventosPassados.setLayoutManager(new LinearLayoutManager(this));
+        recyclerEventosFuturos.setLayoutManager(new LinearLayoutManager(this));
     }
 
     public void retornar(View v){
