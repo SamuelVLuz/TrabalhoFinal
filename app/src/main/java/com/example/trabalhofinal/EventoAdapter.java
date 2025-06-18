@@ -15,7 +15,7 @@ public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.ViewHolder
     private List<Evento> eventos;
     private OnItemClickListener listener;
     public interface OnItemClickListener {
-        void onItemClick(Usuario usuario);
+        void onItemClick(Evento evento);
     }
     public EventoAdapter(List<Evento> eventos, OnItemClickListener listener) {
         this.eventos = eventos;

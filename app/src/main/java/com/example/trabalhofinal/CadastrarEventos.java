@@ -65,20 +65,15 @@ public class CadastrarEventos extends AppCompatActivity {
                 SimpleDateFormat userTimeFormat = new SimpleDateFormat("HH:mm");
                 java.util.Date parsedInicio = userTimeFormat.parse(inicioStr);
                 java.util.Date parsedFim = userTimeFormat.parse(fimStr);
-                java.util.Date parsedParticipacao = userTimeFormat.parse(participacaoStr);
 
                 java.sql.Time sqlInicio = new java.sql.Time(parsedInicio.getTime());
                 java.sql.Time sqlFim = new java.sql.Time(parsedFim.getTime());
-                Duration sqlParticipacao = Duration.parse(participacaoStr); // e.g., "04:00"
 
-
-                String[] parts = participacaoStr.split(":");
-                long hours = Long.parseLong(parts[0]);
-                long minutes = Long.parseLong(parts[1]);
-                Duration participacao = Duration.ofHours(hours).plusMinutes(minutes);
+                // Convert "HH:mm" string to Duration
+                Duration participacao = parseDurationFromHHmm(participacaoStr);
 
                 // Create and insert Evento
-                Evento evento = new Evento(nome, desc, sqlDate, sqlInicio, sqlFim, sqlParticipacao);
+                Evento evento = new Evento(nome, desc, sqlDate, sqlInicio, sqlFim, participacao);
                 long id = eventoDAO.inserir(evento);
 
                 Log.d("cadastro de evento", "Passou " + id);
@@ -102,6 +97,14 @@ public class CadastrarEventos extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Por favor, digite um nome", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private Duration parseDurationFromHHmm(String timeStr) throws NumberFormatException {
+        String[] parts = timeStr.split(":");
+        if (parts.length != 2) throw new NumberFormatException("Formato de duração inválido");
+        long hours = Long.parseLong(parts[0]);
+        long minutes = Long.parseLong(parts[1]);
+        return Duration.ofHours(hours).plusMinutes(minutes);
     }
 
     public void retornar(View v){

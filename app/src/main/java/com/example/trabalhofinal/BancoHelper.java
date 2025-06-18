@@ -11,6 +11,7 @@ public class BancoHelper extends SQLiteOpenHelper{
     public BancoHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sqlUsuario = "CREATE TABLE Usuario (" +
@@ -40,8 +41,7 @@ public class BancoHelper extends SQLiteOpenHelper{
                 "saida TIME NOT NULL, " +
                 "PRIMARY KEY (Evento_id, Usuario_id)," +
                 "FOREIGN KEY (Usuario_id) REFERENCES Usuario(id) ON DELETE NO ACTION ON UPDATE NO ACTION, " +
-                "FOREIGN KEY (Evento_id) REFERENCES Evento(id) ON DELETE NO ACTION ON UPDATE NO ACTION" +
-                ")";
+                "FOREIGN KEY (Evento_id) REFERENCES Evento(id) ON DELETE NO ACTION ON UPDATE NO ACTION)";
 
         db.execSQL(sqlPresenca);
 
@@ -49,6 +49,8 @@ public class BancoHelper extends SQLiteOpenHelper{
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS Usuario");
+        db.execSQL("DROP TABLE IF EXISTS Evento");
+        db.execSQL("DROP TABLE IF EXISTS Presenca");
         onCreate(db);
     }
 }

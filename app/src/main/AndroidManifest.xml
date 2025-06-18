@@ -13,6 +13,12 @@
         android:theme="@style/Theme.TrabalhoFinal"
         tools:targetApi="31">
         <activity
+            android:name=".UsuarioDetalhes"
+            android:exported="false" />
+        <activity
+            android:name=".EventoDetalhes"
+            android:exported="false" />
+        <activity
             android:name=".ListaUsuarios"
             android:exported="false" />
         <activity

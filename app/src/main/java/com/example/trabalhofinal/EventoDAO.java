@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 public class EventoDAO {
+    public static final int ANTIGOS = 1;
+    public static final int FUTUROS = 2;
     private SQLiteDatabase db;
     public EventoDAO(Context context) {
         BancoHelper helper = new BancoHelper(context);
@@ -30,20 +32,35 @@ public class EventoDAO {
         values.put("participacao", evento.getParticipacao().getSeconds());
         return db.insert("Evento", null, values);
     }
-    public List<Evento> listar() {
+    public List<Evento> listar(int tipo) {
+        String sqlBusca;
         List<Evento> eventos = new ArrayList<>();
-        Cursor cursor = db.rawQuery("SELECT * FROM Evento", null);
+
+
+        if (tipo == ANTIGOS) {
+            sqlBusca = "SELECT * FROM Evento WHERE data < date('now')";
+        } else if (tipo == FUTUROS) {
+            sqlBusca = "SELECT * FROM Evento WHERE data >= date('now')";
+        } else {
+            sqlBusca = "SELECT * FROM Evento";
+        }
+        Cursor cursor = db.rawQuery(sqlBusca, null);
 
         while (cursor.moveToNext()) {
-            int id = cursor.getInt(0);
-            String nome = cursor.getString(1);
-            String descricao = cursor.getString(2);
-            Date data = dateFormat.parse(cursor.getString(3));
-            Time inicio = new Time(timeFormat.parse(cursor.getString(4)).getTime());
-            Time fim = new Time(timeFormat.parse(cursor.getString(5)).getTime());
-            long participacaoSeconds = cursor.getLong(6);
-            Duration participacao = Duration.ofSeconds(participacaoSeconds);
-            eventos.add(new Evento(id, nome, descricao, data, inicio, fim, participacao));
+            try {
+                int id = cursor.getInt(0);
+                String nome = cursor.getString(1);
+                String descricao = cursor.getString(2);
+                Date data = dateFormat.parse(cursor.getString(3));
+                Time inicio = new Time(timeFormat.parse(cursor.getString(4)).getTime());
+                Time fim = new Time(timeFormat.parse(cursor.getString(5)).getTime());
+                long participacaoSeconds = cursor.getLong(6);
+                Duration participacao = Duration.ofSeconds(participacaoSeconds);
+                eventos.add(new Evento(id, nome, descricao, data, inicio, fim, participacao));
+            } catch (Exception e) {
+                e.printStackTrace();
+                // Você pode adicionar um Toast ou log adicional aqui, se quiser indicar erro na conversão de um registro.
+            }
         }
         cursor.close();
         return eventos;
