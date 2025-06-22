@@ -24,15 +24,18 @@ public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView txtNomeEvento;
+        public View btnDetalhes;
 
         public ViewHolder(View itemView){
             super(itemView);
             txtNomeEvento = itemView.findViewById(R.id.txtNomeEvento);
+            btnDetalhes = itemView.findViewById(R.id.btnDetalhes);
         }
 
         public void bind(Evento evento, OnItemClickListener listener) {
             txtNomeEvento.setText(evento.getNome());
-            itemView.setOnClickListener(v -> listener.onItemClick(evento));
+            //itemView.setOnClickListener(v -> listener.onItemClick(evento));
+            btnDetalhes.setOnClickListener(v -> listener.onItemClick(evento));
         }
     }
     @Override
