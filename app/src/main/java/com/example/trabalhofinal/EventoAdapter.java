@@ -34,13 +34,22 @@ public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.ViewHolder
 
         public void bind(Evento evento, OnItemClickListener listener) {
             txtNomeEvento.setText(evento.getNome());
-            //itemView.setOnClickListener(v -> listener.onItemClick(evento));
             btnDetalhes.setOnClickListener(v -> listener.onItemClick(evento));
+
+            itemView.setOnClickListener(v -> {
+                if (v.getId() != R.id.btnDetalhes) {
+                    android.widget.Toast.makeText(
+                            itemView.getContext(),
+                            "Selecionado: " + evento.getNome(),
+                            android.widget.Toast.LENGTH_SHORT
+                    ).show();
+                }
+            });
         }
     }
     @Override
     public EventoAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.xml.item_evento, parent,
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_evento, parent,
                 false);
         return new ViewHolder(view);
     }

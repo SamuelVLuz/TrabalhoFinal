@@ -1,6 +1,8 @@
 package com.example.trabalhofinal;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,19 @@ public class UsuarioDetalhes extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Usuario usuario = getIntent().getParcelableExtra("usuario");
+
+        if (usuario != null) {
+            ((TextView) findViewById(R.id.textViewusuarioNome)).setText("Nome: " + usuario.getNome());
+            ((TextView) findViewById(R.id.textViewusuarioCPF)).setText("CPF: " + usuario.getCpf());
+            ((TextView) findViewById(R.id.textViewusuarioEmail)).setText("E-mail: " + usuario.getEmail());
+            ((TextView) findViewById(R.id.textViewusuarioTelefone)).setText("Telefone: " + usuario.getTelefone());
+        }
+
+    }
+
+    public void retornar(View v){
+        finish();
     }
 }

@@ -24,20 +24,34 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView txtNomeUsuario;
+        public View btnDetalhes;
 
         public ViewHolder(View itemView){
             super(itemView);
             txtNomeUsuario = itemView.findViewById(R.id.txtNomeUsuario);
+            btnDetalhes = itemView.findViewById(R.id.btnDetalhes);
         }
 
         public void bind(Usuario usuario, OnItemClickListener listener) {
             txtNomeUsuario.setText(usuario.getNome());
-            itemView.setOnClickListener(v -> listener.onItemClick(usuario));
+            btnDetalhes.setOnClickListener(v -> listener.onItemClick(usuario));
+
+            // Action when the rest of the item is clicked (show Toast)
+            itemView.setOnClickListener(v -> {
+                // Prevent the button itself from triggering this
+                if (v.getId() != R.id.btnDetalhes) {
+                    android.widget.Toast.makeText(
+                            itemView.getContext(),
+                            "Selecionado: " + usuario.getNome(),
+                            android.widget.Toast.LENGTH_SHORT
+                    ).show();
+                }
+            });
         }
     }
     @Override
     public UsuarioAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.xml.item_usuario, parent,
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_usuario, parent,
                 false);
         return new ViewHolder(view);
     }

@@ -44,8 +44,13 @@ public class ListaUsuarios extends AppCompatActivity {
     private void carregarUsuarios(){
         List<Usuario> usuarios = usuarioDAO.listar();
         adapter = new UsuarioAdapter(usuarios, usuario -> {
+            Intent intent = new Intent(ListaUsuarios.this, UsuarioDetalhes.class);
+            intent.putExtra("usuario", usuario);
+            startActivity(intent);
+        });/*
+        adapter = new UsuarioAdapter(usuarios, usuario -> {
             Toast.makeText(this, "Selecionado: " + usuario.getNome(), Toast.LENGTH_SHORT).show();
-        });
+        });*/
         recyclerUsuarios.setAdapter(adapter);
     }
 

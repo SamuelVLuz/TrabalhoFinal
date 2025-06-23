@@ -1,10 +1,13 @@
 package com.example.trabalhofinal;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.sql.Time;
 import java.time.Duration;
 import java.util.Date;
 
-public class Evento {
+public class Evento implements Parcelable {
     private int id;
     private String nome;
     private String descricao;
@@ -28,6 +31,44 @@ public class Evento {
         this.inicio = inicio;
         this.fim = fim;
         this.participacao = participacao;
+    }
+
+    protected Evento(Parcel in) {
+        id = in.readInt();
+        nome = in.readString();
+        descricao = in.readString();
+        data = new Date(in.readLong());
+        inicio = new Time(in.readLong());
+        fim = new Time(in.readLong());
+        participacao = Duration.ofSeconds(in.readLong());
+    }
+
+    public static final Creator<Evento> CREATOR = new Creator<Evento>() {
+        @Override
+        public Evento createFromParcel(Parcel in) {
+            return new Evento(in);
+        }
+
+        @Override
+        public Evento[] newArray(int size) {
+            return new Evento[size];
+        }
+    };
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(nome);
+        dest.writeString(descricao);
+        dest.writeLong(data.getTime());
+        dest.writeLong(inicio.getTime());
+        dest.writeLong(fim.getTime());
+        dest.writeLong(participacao.getSeconds());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
     public Evento(String nome) {
         this.nome = nome;

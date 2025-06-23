@@ -38,7 +38,7 @@ public class BancoHelper extends SQLiteOpenHelper{
                 "Usuario_id INT NOT NULL, " +
                 "Evento_id INT NOT NULL, " +
                 "entrada TIME NOT NULL, " +
-                "saida TIME NOT NULL, " +
+                "saida TIME, " +
                 "PRIMARY KEY (Evento_id, Usuario_id)," +
                 "FOREIGN KEY (Usuario_id) REFERENCES Usuario(id) ON DELETE NO ACTION ON UPDATE NO ACTION, " +
                 "FOREIGN KEY (Evento_id) REFERENCES Evento(id) ON DELETE NO ACTION ON UPDATE NO ACTION)";

@@ -1,37 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/fundo"
-    android:orientation="vertical"
-    android:padding="12dp">
+    android:padding="16dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
 
     <TextView
-        android:id="@+id/textTitulo"
-        android:layout_width="match_parent"
+        android:id="@+id/txtNomeEvento"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Título da tarefa"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textColor="#000000" />
 
-    <TextView
-        android:id="@+id/textDataInfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Informação da Data"
-        android:textSize="14sp" />
-
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btnDetalhes"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="TelaPrincipal"
-        android:text="Detalhes"
-        android:textColor="@color/hint"
-        app:cornerRadius="12dp"
-        app:strokeColor="#B0BEC5"
-        app:strokeWidth="1dp" />
-
+        android:text="Detalhes" />
 </LinearLayout>

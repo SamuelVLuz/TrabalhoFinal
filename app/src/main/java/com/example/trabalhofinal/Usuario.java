@@ -1,6 +1,9 @@
 package com.example.trabalhofinal;
 
-public class Usuario {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Usuario implements Parcelable {
     private int id;
     private String nome;
     private String cpf;
@@ -21,6 +24,40 @@ public class Usuario {
     }
     public Usuario(String nome) {
         this.nome = nome;
+    }
+
+    protected Usuario(Parcel in) {
+        id = in.readInt();
+        nome = in.readString();
+        cpf = in.readString();
+        email = in.readString();
+        telefone = in.readString();
+    }
+
+    public static final Creator<Usuario> CREATOR = new Creator<Usuario>() {
+        @Override
+        public Usuario createFromParcel(Parcel in) {
+            return new Usuario(in);
+        }
+
+        @Override
+        public Usuario[] newArray(int size) {
+            return new Usuario[size];
+        }
+    };
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(nome);
+        dest.writeString(cpf);
+        dest.writeString(email);
+        dest.writeString(telefone);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public int getId() {

@@ -58,7 +58,9 @@ public class ListaEventos extends AppCompatActivity {
     private void carregarEventosFuturos(){
         List<Evento> eventos = eventoDAO.listar(FUTUROS);
         adapter = new EventoAdapter(eventos, evento -> {
-            Toast.makeText(this, "Selecionado: " + evento.getNome(), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(ListaEventos.this, EventoDetalhes.class);
+            intent.putExtra("evento", evento);
+            startActivity(intent);
         });
         recyclerEventosFuturos.setAdapter(adapter);
     }
@@ -66,7 +68,9 @@ public class ListaEventos extends AppCompatActivity {
     private void carregarEventosPassados(){
         List<Evento> eventos = eventoDAO.listar(ANTIGOS);
         adapter = new EventoAdapter(eventos, evento -> {
-            Toast.makeText(this, "Selecionado: " + evento.getNome(), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(ListaEventos.this, EventoDetalhes.class);
+            intent.putExtra("evento", evento);
+            startActivity(intent);
         });
         recyclerEventosPassados.setAdapter(adapter);
     }
