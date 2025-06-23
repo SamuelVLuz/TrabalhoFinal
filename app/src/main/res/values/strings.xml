@@ -6,6 +6,7 @@
     <string name="sobre">Sobre</string>
     <string name="botao_retornar">Retornar</string>
     <string name="botao_cadastrar">Cadastrar</string>
+    <string name="botao_registrar">Registrar</string>
     <string name="botao_novo">Novo</string>
     <string name="cadastro_eventos">Cadastro de Eventos</string>
     <string name="cadastro_usuarios">Cadastro de Usuários</string>
@@ -25,7 +26,8 @@
     <string name="hint_email">E-mail</string>
     <string name="hint_telefone">Telefone</string>
     <string name="hint_pesquisar">Pesquisar</string>
-
+    <!-- Presença -->
+    <string name="hint_presenca">Presença</string>
 
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

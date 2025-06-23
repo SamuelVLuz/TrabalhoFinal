@@ -22,6 +22,12 @@ public class Usuario implements Parcelable {
         this.email = email;
         this.telefone = telefone;
     }
+
+    public Usuario(int id, String nome, String cpf) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+    }
     public Usuario(String nome) {
         this.nome = nome;
     }

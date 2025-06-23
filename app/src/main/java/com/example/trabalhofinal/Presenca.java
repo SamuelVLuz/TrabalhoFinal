@@ -19,10 +19,11 @@ public class Presenca implements Parcelable {
         this.entrada = entrada;
         this.saida = saida;
     }
-    public Presenca(int Usuario_id, int Evento_id, Time saida) {
+
+    public Presenca(int Usuario_id, int Evento_id, Time entrada) {
         this.Usuario_id = Usuario_id;
         this.Evento_id = Evento_id;
-        this.saida = saida;
+        this.entrada = entrada;
     }
     public Presenca(Time entrada, Time saida) {
         this.entrada = entrada;

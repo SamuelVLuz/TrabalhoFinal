@@ -34,4 +34,16 @@ public class UsuarioDAO {
         cursor.close();
         return usuarios;
     }
+
+    public Usuario getByCpf(String cpf) {
+        Cursor cursor = db.rawQuery("SELECT * FROM Usuario WHERE cpf = ?", new String[]{cpf});
+        if (cursor.moveToFirst()) {
+            int id = cursor.getInt(0);
+            String nome = cursor.getString(1);
+            cursor.close();
+            return new Usuario(id, nome, cpf);
+        }
+        cursor.close();
+        return null;
+    }
 }

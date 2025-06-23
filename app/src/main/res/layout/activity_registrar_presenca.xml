@@ -5,6 +5,77 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fundo"
     tools:context=".RegistrarPresenca">
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/fundotitulo"
+            android:backgroundTintMode="src_in"
+            android:elevation="2dp"
+            android:padding="16dp"
+            android:text="@string/hint_presenca"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editTextPresenca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@color/white"
+            android:hint="@string/hint_cpf"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textAlignment="center"
+            android:textColorHint="@color/hint" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_registrar"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:onClick="registrarPresenca"
+            android:text="@string/botao_registrar"
+            android:textColor="@color/fundolista"
+            app:backgroundTint="@color/botao"
+            app:backgroundTintMode="src_in"
+            app:cornerRadius="12dp"
+            app:strokeColor="#B0BEC5"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_eventos_retornar"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="retornar"
+            android:text="@string/botao_retornar"
+            android:textColor="@color/fundolista"
+            app:backgroundTint="@color/botao"
+            app:backgroundTintMode="src_in"
+            app:cornerRadius="12dp"
+            app:strokeColor="#B0BEC5"
+            app:strokeWidth="1dp" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

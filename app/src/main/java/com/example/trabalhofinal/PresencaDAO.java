@@ -50,4 +50,23 @@ public class PresencaDAO {
         cursor.close();
         return presencas;
     }
+
+    public Presenca getUsuario_Evento(int userId, int eventId) {
+        Cursor cursor = db.rawQuery(
+                "SELECT * FROM Presenca WHERE Usuario_id = ? AND Evento_id = ?",
+                new String[]{String.valueOf(userId), String.valueOf(eventId)}
+        );
+        if (cursor.moveToFirst()) {
+            Time entrada = Time.valueOf(cursor.getString(2));
+            Time saida = cursor.isNull(3) ? null : Time.valueOf(cursor.getString(3));
+            cursor.close();
+            return new Presenca(userId, eventId, entrada, saida);
+        }
+        cursor.close();
+        return null;
+    }
+
+    public SQLiteDatabase getDb() {
+        return db;
+    }
 }
