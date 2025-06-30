@@ -70,18 +70,6 @@
             </LinearLayout>
         </ScrollView>
 
-        <EditText
-            android:id="@+id/editTextPesquisarUsuarios"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:background="@color/white"
-            android:drawableStart="@drawable/lupa"
-            android:hint="@string/hint_pesquisar"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textAlignment="center" />
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_usuarios_retornar"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"

@@ -42,6 +42,7 @@ public class EventoDetalhes extends AppCompatActivity {
         }
 
         MaterialButton btnPresenca = findViewById(R.id.button_registrar_presenca);
+        MaterialButton btnRelatorio = findViewById(R.id.button_gerar_relatorio);
 
         LocalDate hoje = LocalDate.now();
         LocalTime agora = LocalTime.now();
@@ -63,6 +64,7 @@ public class EventoDetalhes extends AppCompatActivity {
 
         boolean eventoHoje = dataEvento.isEqual(hoje);
         boolean dentroDoHorario = !agora.isBefore(inicio) && !agora.isAfter(fim);
+        boolean eventoFinalizado = dataEvento.isBefore(hoje) || (dataEvento.isEqual(hoje) && agora.isAfter(fim));
 
         if (eventoHoje && dentroDoHorario) {
             btnPresenca.setVisibility(View.VISIBLE);
@@ -74,6 +76,17 @@ public class EventoDetalhes extends AppCompatActivity {
             });
         } else {
             btnPresenca.setVisibility(View.GONE);
+        }
+
+        if (eventoFinalizado) {
+            btnRelatorio.setVisibility(View.VISIBLE);
+            btnRelatorio.setOnClickListener(v -> {
+                Intent i = new Intent(this, RelatorioEvento.class);
+                i.putExtra("evento", evento);
+                startActivity(i);
+            });
+        } else {
+            btnRelatorio.setVisibility(View.GONE);
         }
     }
 

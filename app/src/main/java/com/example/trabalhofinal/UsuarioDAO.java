@@ -35,6 +35,20 @@ public class UsuarioDAO {
         return usuarios;
     }
 
+    public Usuario getById(int id) {
+        Cursor cursor = db.rawQuery("SELECT * FROM Usuario WHERE id = ?", new String[]{String.valueOf(id)});
+        if (cursor.moveToFirst()) {
+            String nome = cursor.getString(1);
+            String cpf = cursor.getString(2);
+            String email = cursor.getString(3);
+            String telefone = cursor.getString(4);
+            cursor.close();
+            return new Usuario(id, nome, cpf, email, telefone);
+        }
+        cursor.close();
+        return null;
+    }
+
     public Usuario getByCpf(String cpf) {
         Cursor cursor = db.rawQuery("SELECT * FROM Usuario WHERE cpf = ?", new String[]{cpf});
         if (cursor.moveToFirst()) {

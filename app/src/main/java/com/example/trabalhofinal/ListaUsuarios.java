@@ -55,7 +55,8 @@ public class ListaUsuarios extends AppCompatActivity {
     }
 
     public void retornar(View v){
-        finish();
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 
     public void cadastrarUsuarios(View v){

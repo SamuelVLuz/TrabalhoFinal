@@ -76,7 +76,8 @@ public class ListaEventos extends AppCompatActivity {
     }
 
     public void retornar(View v){
-        finish();
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 
     public void cadastrarEventos(View v){

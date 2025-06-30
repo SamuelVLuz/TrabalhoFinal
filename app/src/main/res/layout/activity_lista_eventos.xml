@@ -117,17 +117,6 @@
             </LinearLayout>
         </ScrollView>
 
-        <EditText
-            android:id="@+id/editTextPesquisarUsuarios"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/white"
-            android:drawableStart="@drawable/lupa"
-            android:hint="@string/hint_pesquisar"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textAlignment="center" />
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_eventos_retornar"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"

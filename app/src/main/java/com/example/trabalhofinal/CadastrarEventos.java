@@ -108,6 +108,7 @@ public class CadastrarEventos extends AppCompatActivity {
     }
 
     public void retornar(View v){
-        finish();
+        Intent i = new Intent(this, ListaEventos.class);
+        startActivity(i);
     }
 }

@@ -59,6 +59,7 @@ public class CadastrarUsuarios extends AppCompatActivity {
     }
 
     public void retornar(View v){
-        finish();
+        Intent i = new Intent(this, ListaUsuarios.class);
+        startActivity(i);
     }
 }

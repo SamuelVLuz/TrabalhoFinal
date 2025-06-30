@@ -38,6 +38,22 @@
             android:textStyle="bold" />
 
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonDeleteEvent"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="top|end"
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/delete"
+            android:onClick="cadastrarUsuarios"
+            android:text="@string/botao_excluir"
+            android:textColor="@color/fundolista"
+            app:backgroundTint="@color/botao"
+            app:cornerRadius="12dp"
+            app:strokeColor="#B0BEC5"
+            app:strokeWidth="1dp" />
+
         <LinearLayout
             android:id="@+id/linearLayoutEventoDetalhes"
             android:layout_width="match_parent"
@@ -93,11 +109,24 @@
             android:id="@+id/button_registrar_presenca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrar Presença"
+            android:layout_marginTop="16dp"
+            android:text="REGISTRAR PRESENÇA"
             android:textColor="@color/white"
             app:backgroundTint="@color/botao"
+            app:cornerRadius="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_gerar_relatorio"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Gerar Relatório"
+            android:textColor="@color/fundolista"
+            app:backgroundTint="@color/botao"
             app:cornerRadius="12dp"
-            android:layout_marginTop="16dp"/>
+            app:strokeColor="#B0BEC5"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_eventos_retornar"
