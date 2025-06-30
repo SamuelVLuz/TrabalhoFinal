@@ -60,4 +60,8 @@ public class UsuarioDAO {
         cursor.close();
         return null;
     }
+
+    public void excluir(int id) {
+        db.delete("Usuario", "id = ?", new String[]{String.valueOf(id)});
+    }
 }

@@ -10,7 +10,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import android.content.DialogInterface;
+import android.widget.Toast;
+import android.content.Intent;
+import com.google.android.material.button.MaterialButton;
+import androidx.appcompat.app.AlertDialog;
+
 public class UsuarioDetalhes extends AppCompatActivity {
+
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +31,7 @@ public class UsuarioDetalhes extends AppCompatActivity {
             return insets;
         });
 
-        Usuario usuario = getIntent().getParcelableExtra("usuario");
+        usuario = getIntent().getParcelableExtra("usuario");
 
         if (usuario != null) {
             ((TextView) findViewById(R.id.textViewusuarioNome)).setText("Nome: " + usuario.getNome());
@@ -33,6 +41,27 @@ public class UsuarioDetalhes extends AppCompatActivity {
         }
 
     }
+
+    public void excluirUsuario(View view) {
+        if (usuario != null) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Confirmação")
+                    .setMessage("Deseja realmente excluir o usuário?")
+                    .setPositiveButton("Sim", (dialogInterface, i) -> {
+                        UsuarioDAO dao = new UsuarioDAO(this);
+                        dao.excluir(usuario.getId());
+
+                        Toast.makeText(this, "Usuário excluído com sucesso!", Toast.LENGTH_SHORT).show();
+
+                        // Retorna para a tela anterior
+                        setResult(RESULT_OK);
+                        finish();
+                    })
+                    .setNegativeButton("Cancelar", null)
+                    .show();
+        }
+    }
+
 
     public void retornar(View v){
         finish();

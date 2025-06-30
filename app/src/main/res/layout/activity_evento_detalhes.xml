@@ -46,7 +46,7 @@
             android:layout_gravity="top|end"
             android:layout_marginBottom="10dp"
             android:drawableLeft="@drawable/delete"
-            android:onClick="cadastrarUsuarios"
+            android:onClick="excluirEvento"
             android:text="@string/botao_excluir"
             android:textColor="@color/fundolista"
             app:backgroundTint="@color/botao"

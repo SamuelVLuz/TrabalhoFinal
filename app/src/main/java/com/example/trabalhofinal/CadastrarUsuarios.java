@@ -42,20 +42,30 @@ public class CadastrarUsuarios extends AppCompatActivity {
         String email = editEmail.getText().toString().trim();
         String telefone = editTelefone.getText().toString().trim();
 
-        if(!nome.isEmpty()){
-            Usuario usuario = new Usuario(nome, cpf, email, telefone);
-            long id = usuarioDAO.inserir(usuario);
-            Log.d("cadastro de usuario", "Passou" + id);
-            Toast.makeText(this, "Usuario cadastrado com ID:" + id, Toast.LENGTH_SHORT).show();
-            editNome.setText("");
-            editCPF.setText("");
-            editEmail.setText("");
-            editTelefone.setText("");
-            Intent i = new Intent(this, ListaUsuarios.class);
-            startActivity(i);
-        } else {
-            Toast.makeText(this, "Por favor, digite um nome", Toast.LENGTH_SHORT).show();
+        if(nome.isEmpty() || cpf.isEmpty()){
+            Toast.makeText(this, "Nome e CPF são obrigatórios.", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        // Verifica se o CPF já existe
+        Usuario existente = usuarioDAO.getByCpf(cpf);
+        if (existente != null) {
+            Toast.makeText(this, "Já existe um usuário com esse CPF.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Usuario usuario = new Usuario(nome, cpf, email, telefone);
+        long id = usuarioDAO.inserir(usuario);
+        Log.d("cadastro de usuario", "Passou " + id);
+        Toast.makeText(this, "Usuário cadastrado com ID: " + id, Toast.LENGTH_SHORT).show();
+
+        editNome.setText("");
+        editCPF.setText("");
+        editEmail.setText("");
+        editTelefone.setText("");
+
+        Intent i = new Intent(this, ListaUsuarios.class);
+        startActivity(i);
     }
 
     public void retornar(View v){

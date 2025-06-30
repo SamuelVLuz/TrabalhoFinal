@@ -13,6 +13,9 @@
     <string name="cadastro_usuarios">Cadastro de Usuários</string>
     <string name="eventos_passados">Eventos Passados</string>
     <string name="eventos_futuros">Eventos Futuros</string>
+    <string name="aluno">Aluno: Samuel Vinícius da Luz</string>
+    <string name="curso">Curso: Tecnologia em Análise e Desenvolvimento de Sistemas</string>
+    <string name="explicacao">Presente é um aplicativo de fácil uso para registro de presenças nos eventos.\nCom ele você pode criar de forma rápida os eventos e realizar o cadastro nos eventos.\nPara registra a presença, basta preencher com o seu CPF, para dar a entrada e a saída.</string>
 
     <!-- Hints -->
     <!-- Eventos -->

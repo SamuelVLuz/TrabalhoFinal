@@ -38,12 +38,17 @@ public class EventoDAO {
 
 
         if (tipo == ANTIGOS) {
-            sqlBusca = "SELECT * FROM Evento WHERE data < date('now')";
+            sqlBusca = "SELECT * FROM Evento WHERE " +
+                    "(data < date('now')) OR " +
+                    "(data = date('now') AND fim < time('now'))";
         } else if (tipo == FUTUROS) {
-            sqlBusca = "SELECT * FROM Evento WHERE data >= date('now')";
+            sqlBusca = "SELECT * FROM Evento WHERE " +
+                    "(data > date('now')) OR " +
+                    "(data = date('now') AND fim >= time('now'))";
         } else {
             sqlBusca = "SELECT * FROM Evento";
         }
+
         Cursor cursor = db.rawQuery(sqlBusca, null);
 
         while (cursor.moveToNext()) {
@@ -64,5 +69,8 @@ public class EventoDAO {
         }
         cursor.close();
         return eventos;
+    }
+    public void excluir(int id) {
+        db.delete("Evento", "id = ?", new String[]{String.valueOf(id)});
     }
 }
