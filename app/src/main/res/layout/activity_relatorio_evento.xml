@@ -46,6 +46,8 @@
                 android:id="@+id/linearLayoutRelatorioEvento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/fundolista"
+                android:backgroundTint="@color/fundolista"
                 android:orientation="vertical" />
         </ScrollView>
 

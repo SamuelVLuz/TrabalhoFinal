@@ -22,7 +22,7 @@
     <string name="hint_data">Data do Evento</string>
     <string name="hint_inicio">Horário\nInício</string>
     <string name="hint_final">Horário\nEncerramento</string>
-    <string name="hint_participacao">Participação (% ou hh:mm)</string>
+    <string name="hint_participacao">Participação (hh:mm)</string>
     <!-- Usuários -->
     <string name="hint_nome">Nome</string>
     <string name="hint_descrcao">Descrição</string>
